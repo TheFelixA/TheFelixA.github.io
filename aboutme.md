@@ -1,16 +1,13 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: I dislike bios but here is a summary
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+My name is Felix Ackon and my interests vary almost every year. I'm very open to hearing and trying out the interests of others.
+One thing that I continue to love doing is problem solving.
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+### One of my favorite quotes 
 
-What else do you need?
-
-### my history
-
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+"If you want something you've never had
+You must be willing to do something you've never done"
