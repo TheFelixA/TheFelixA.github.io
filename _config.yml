@@ -25,13 +25,13 @@ description: An organized place for anyone who wants to learn about what I have 
 navbar-links:
   About Me: "aboutme"
   Research: 
-    - Publications
-    - Data Analysis and Visualizations
+    - Publications: "mypubs"
+    - Data Analysis and Visualizations: "showcase"
   #Resources:
     #- Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
     #- Learn markdown: "http://www.markdowntutorial.com/"
     #- GitHub Pages: "https://pages.github.com/"
-  My Email: "ackon3000@yahoo.com"
+  Contact Me: 
   #Author's home: "http://deanattali.com"
 
 # Image to show in the navigation bar - image must be a square (width = height)
@@ -68,7 +68,7 @@ footer-link-col: "#404040"
 # Change all these values or delete the ones you don't want.
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
-  name: Some Person
+  name: Felix Ackon
 
 # Select your active Social Network Links.
 # Uncomment the links you want to show in the footer and add your information to each link.
@@ -82,7 +82,7 @@ social-network-links:
 #  twitter: daattali
 #  reddit: yourname
 #  google-plus: +DeanAttali
-  linkedin: Felix Ackon
+  linkedin: felix-ackon-1507b6105
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
@@ -99,9 +99,9 @@ share-links-active:
   twitter: false
   facebook: false
   google: false
-  linkedin: true
-  github: true
-  linkedin: true
+  linkedin: false
+  github: false
+  linkedin: false
 
 # How to display the link to the website in the footer
 # Remove this if you don't want a link in the footer
