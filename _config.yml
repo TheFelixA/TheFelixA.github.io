@@ -17,17 +17,21 @@ baseurl: ""
 title: Felix Ackon's Website
 
 # Short description of your site
-description: An organized place for anyone who wants to learn about whay I have done and plan to do!
+description: An organized place for anyone who wants to learn about what I have done and plan to do!
 
 # --- Navigation bar options --- #
 
 # List of links in the navigation bar
 navbar-links:
   About Me: "aboutme"
-  Resources:
+  Research: 
+    - Publications
+    - Data Analysis and Visualizations
+  #Resources:
     #- Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
     #- Learn markdown: "http://www.markdowntutorial.com/"
     #- GitHub Pages: "https://pages.github.com/"
+  My Email: "ackon3000@yahoo.com"
   #Author's home: "http://deanattali.com"
 
 # Image to show in the navigation bar - image must be a square (width = height)
@@ -73,7 +77,7 @@ author:
 social-network-links:
   rss: true
   email: "ackon3000@yahoo.com"
-  facebook: daattali
+#  facebook: daattali
   github: TheFelixA
 #  twitter: daattali
 #  reddit: yourname
