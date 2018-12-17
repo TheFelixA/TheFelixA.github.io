@@ -23,6 +23,7 @@ description: An organized place for anyone who wants to learn about what I have 
 
 # List of links in the navigation bar
 navbar-links:
+  Blog Posts: "https://TheFelixA.github.io"
   About Me: "aboutme"
   Research: 
     - Publications: "mypubs"
