@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About me
-subtitle: Problem Solver || Data Science Enthusiast || Comedy Fan || 
+subtitle: Problem Solver || Data Science Enthusiast || Comedy Fan  
 ---
 
 I am currently a first year PhD in the Operations Research and 
