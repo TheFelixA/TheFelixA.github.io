@@ -1,17 +1,12 @@
 ---
 layout: post
 title: School is Tough Man
-image: /img/hello_world.jpeg
+image: /img/grad_school_barbie.jpeg
 ---
 
-	My first semester as PhD student is finally complete. It was a difficult semester and there
-were a few skills that I had to develop in order to not get destroyed by school.
+My first semester as PhD student is finally complete. It was a difficult semester for me and I had to develop some skills in order to survive.One skill was finding alternative ways to learn course content outside of the lecturers' notes. It is difficult for professors to gauge everyone's level so they standardize the material into a one-size fits all. That did not work for me in most cases, however, by looking online I discovered many intuition based lecture notes and examples that game me good exposure. 
 
-	One skill was finding alternative ways to learn course content outside of the lecturers' notes.
-It is difficul for professors to gauge everyone's level so they standardize the material into
-a one-size fits all. That did not work for me in most cases, however, by looking online I discovered many intuition based lecture notes and examples that game me good exposure. 
-
-	Also, setting up time to do things that made me happy and active played a role. It is futile
+Also, setting up time to do things that made me happy and active played a role. It is futile
 to continue studying when you are unproductive because breaks a valuable in re-charging your
 mental state and giving you a fresh set of eyes. 
 
