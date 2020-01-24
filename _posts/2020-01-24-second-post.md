@@ -1,7 +1,7 @@
 ---
 layout: post
 title: School is Tough Man
-image: /img/hello_world.jpeg
+image: /img/grad_school.jpeg
 ---
 
 My first semester as PhD student is finally complete. It was a difficult semester for me and I had to develop some skills in order to survive.One skill was finding alternative ways to learn course content outside of the lecturers' notes. It is difficult for professors to gauge everyone's level so they standardize the material into a one-size fits all. That did not work for me in most cases, however, by looking online I discovered many intuition based lecture notes and examples that game me good exposure.
