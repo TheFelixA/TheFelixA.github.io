@@ -1,6 +1,8 @@
 ---
 layout: post
 title: School is Tough Man
+category: [Life]
+tags: Rant
 image: /img/grad_school.jpg
 ---
 

@@ -1,6 +1,8 @@
 ---
 layout: post
-title: Intro to Probability Theory Summary
+category: Education
+tags: [Math, Statistics]
+title: Intro to Probability Theory
 ---
 
 This post will provide an overrview of what I learned in my first semester probability course. The purpose of this post is to improve my understanding and presentation of the material. The focus will be on the broad picture and as a result, the treatment of the subject will not be rigorous. The article will be intended for an undergraduate. I will provide intuition and refer interested readers to references. 
