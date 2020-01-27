@@ -3,6 +3,7 @@ layout: post
 category: Education
 tags: [Math, Statistics]
 title: Intro to Probability Theory (Draft)
+image: /img/cards.png
 ---
 <!DOCTYPE html>
 <html lang = "eg-US">
@@ -40,32 +41,34 @@ title: Intro to Probability Theory (Draft)
 					<li>Weak Law</li>
 					<li>Strong Law</li>
 				</ol>
-				<li>Central Limit Theorem</li>
+				<li><a href = #CLT>Central Limit Theorem</a></li>
 				<ol>
 					<li>Characteristic/Generating Functions</li>
 					<li>Central Limit Theorem</li>
 				</ol>
-				<li>Markov Chains</li>
-				<li>Martingales</li>
-				<li>Poisson Processes</li>			
+				<li><a href = #MC>Markov Chains</a></li>
+				<li><a href = #Mg>Martingales</a></li>
+				<li><a href = #PPP>Poisson Processes</a></li>			
 			<h1 id = "Measure">
 				Measure Theory:
 			</h1>
-				<p>Measure theory provides a structure to formally develop probability theory</p>
+				<p>
+					Measure theory provides a structure to formally develop probability theory
+				</p>
 			<h2>
 				Measure Spaces
 			</h2>
 				<p>
-				Suppose a researcher performs an experiment in which they know all the possible outcomes. This collection of outcomes/events is denoted by \(\Omega\) and will sometimes be called <b>sample space</b>. If the researcher can quantify the probability of an outcome, then they must surely know the probability of the event not happening (<b>compliment</b>), as well as the probability of that event along with others occuring in conjunction (<b>intersection</b>). 
+					Suppose a researcher performs an experiment in which they know all the possible outcomes. This collection of outcomes/events is denoted by \(\Omega\) and will sometimes be called sample space. If the researcher can quantify the probability of an outcome, then they must surely know the probability of the event not happening (compliment), as well as the probability of that event along with others occuring in conjunction (intersection). 
 				</p>
 				<p>
-				A probability measure, \(\mathbb{P}: \Omega \to [0, 1]\), is a mapping from the sample space to a number between 0 and 1. It is perfectly fine for an outcome to have 0 probability. Our researcher above would not handle probilities of the outcomes in the sample space in isolation because some events depend on others and they may be concerned with more than one event. For this reason and others, we can see that a probability measure takes in as input any combination of events. More specifically, the probability measure must work on sets that are the results of boolean algebra (union. subtraction,...). Therefore, it is not enough to enumerate all the outcomes in \(\Omega\), every combination of them must also be enumarated and stored in a different set denoted by \(\mathcal{F}\) which some may recognize as the power set. We call \(\mathcal{F}\) a \(\sigma\)-algebra with the main property of it being that it is closed under boolean algebra. (*Of course the sigma-algebra need not be so large but this definition is sufficient*)
+					A probability measure, \(\mathbb{P}: \Omega \to [0, 1]\), is a mapping from the sample space to a number between 0 and 1. It is perfectly fine for an outcome to have 0 probability. Our researcher above would not handle probilities of the outcomes in the sample space in isolation because some events depend on others and they may be concerned with more than one event. For this reason and others, we can see that a probability measure takes in as input any combination of events. More specifically, the probability measure must work on sets that are the results of boolean algebra (union. subtraction,...). Therefore, it is not enough to enumerate all the outcomes in \(\Omega\), every combination of them must also be enumarated and stored in a different set denoted by \(\mathcal{F}\) which some may recognize as the power set. We call \(\mathcal{F}\) a \(\sigma\)-algebra with the main property of it being that it is closed under boolean algebra. (*Of course the sigma-algebra need not be so large but this definition is sufficient*)
 				</p>
 				<p>
-				The tuple \((\Omega, \mathcal{F}, \mathbb{P})\) is called probility-measure space. Notice the generality of this framework. It can be extended in any experiment, whether discrete or not. As a matter of fact, we do not even have to think of probilities in an experimental sense \(\frac{\text{number of successes}}{\text{number of trails}}\), any assignment that satisfies the above assumptions will work as a probability measure space. will work in defining any experiment.
+					The tuple \((\Omega, \mathcal{F}, \mathbb{P})\) is called probility-measure space. Notice the generality of this framework. It can be extended in any experiment, whether discrete or not. As a matter of fact, we do not even have to think of probilities in an experimental sense \(\frac{\text{number of successes}}{\text{number of trails}}\), any assignment that satisfies the above assumptions will work as a probability measure space. will work in defining any experiment.
 				</p>
 				<p>
-				Side note: We had a closed set under boolean algebra which can be thought as very similar to a vector space which is closed under linear operations. It also shares some similaries of the idea of basis of a set. For example, if the sample space can be partitioned in the "smallest" disjoint sets then we get something similar to "basis" of the sample space. The probability of the union of two events would just be the sum, The difference of two sets would not have an affect. The intersection would always have measure 0. Lastly it makes computing expectations much easier.	 
+					Side note: We had a closed set under boolean algebra which can be thought as very similar to a vector space which is closed under linear operations. It also shares some similaries of the idea of basis of a set. For example, if the sample space can be partitioned in the "smallest" disjoint sets then we get something similar to "basis" of the sample space. The probability of the union of two events would just be the sum, The difference of two sets would not have an affect. The intersection would always have measure 0. Lastly it makes computing expectations much easier.	 
 				</p>
 				<h2>
 					Random Variables
@@ -74,10 +77,10 @@ title: Intro to Probability Theory (Draft)
 					A random variable \(X: \mathcal{F} \to \mathbb{R}\) is simply another way to represent the outcomes in \(\Omega\). Measure spaces are defined to be general, however, with random variables, the outcomes of interest are narrowly and explicitly stated. For example, a gambler may only be concerned with the difference in score of a game being less than 5, therefore they can let their sample space take on a value 0 if the difference is greater than 5 and 1 if the difference is less than 5 and assign probabilities to those events. 
 				</p>
 				<p>
-				Let the probability density function (pdf) of \(X\) be \(f_X (x) := \mathbb{P}[{\omega \in \Omega \vert X(\omega) = x}]\) or the probability measure of events that make \(X=x\). The gambler may go about computing \(f_X (1)\) as the proportion of games that have been decided by 5 points or less during the season (*this is an estimate and not the true probability). The point is that the gambler need not be too concerned with all the information in the underlying measure space after the random variable \(X\) is introduced. The random variables effectively reduces the sample space to things we care about. The gamblers job is being able to pull-back from the range\((X)\) to \(\Omega\) to correctly assign the probabilities and therefore the function \(X\) should have an inverse (injective to be more specific). 
+					Let the probability density function (pdf) of \(X\) be \(f_X (x) := \mathbb{P}[{\omega \in \Omega \vert X(\omega) = x}]\) or the probability measure of events that make \(X=x\). The gambler may go about computing \(f_X (1)\) as the proportion of games that have been decided by 5 points or less during the season (*this is an estimate and not the true probability). The point is that the gambler need not be too concerned with all the information in the underlying measure space after the random variable \(X\) is introduced. The random variables effectively reduces the sample space to things we care about. The gamblers job is being able to pull-back from the range\((X)\) to \(\Omega\) to correctly assign the probabilities and therefore the function \(X\) should have an inverse (injective to be more specific). 
 				</p>
 				<p>  
-				Another way to represent the probabilities of \(X\) is by the the cumulative distribution function (cdf) \(F_X (x) = \mathbb{P}[{\omega \in \Omega \vert X(\omega) \leq x}]\). The cdf and pdf are identicical and each of them uniquely determine a random variable. There are properties for a cdf to be properly defined such as 
+					Another way to represent the probabilities of \(X\) is by the the cumulative distribution function (cdf) \(F_X (x) = \mathbb{P}[{\omega \in \Omega \vert X(\omega) \leq x}]\). The cdf and pdf are identicical and each of them uniquely determine a random variable. There are properties for a cdf to be properly defined such as 
 				<ul>
 					<li>\(\lim_{x \to \infty} F_X (x) = 1\)</li>
 					<li>\(\lim_{x \to -\infty} F_X (x) = 0\)</li>
@@ -85,7 +88,7 @@ title: Intro to Probability Theory (Draft)
 				</ul>
 				</p>
 				<p>
-				There is nothing stopping us from applying other functions to these random variables to transform them. In essense, it is the same as defining a new random variable with the transformed mapping. For example, if the gambler wanted the random variable to represent how much he wins if the score difference is less than 5, he would still be dealing with the same pull-back probability space.
+					There is nothing stopping us from applying other functions to these random variables to transform them. In essense, it is the same as defining a new random variable with the transformed mapping. For example, if the gambler wanted the random variable to represent how much he wins if the score difference is less than 5, he would still be dealing with the same pull-back probability space.
 				</p>
 				<h2>
 					Expectations
@@ -106,85 +109,141 @@ title: Intro to Probability Theory (Draft)
 					Weak Law of Large Numbers:
 				</h2>
 				<p style = "margin-left: 30px;">
-					Let \(X_1, X_2,...\) be independent and identically distributed (iid) random variables. Let \(S_n := \sum_{i=1}^{n} X_i\) be the partial sum. Then
-					\[S_n \overset{p} \to \mathbb{E}[X]\]
+					Let \(X_1, X_2,...\) be independent and identically distributed (iid) random variables with \(\mathbb{E}[X_i] \lt \infty \). Let \(S_n := \sum_{i=1}^{n} X_i\) be the partial sum. Then
+					\[\frac{S_n}{n} \overset{p} \to \mathbb{E}[X]\]
 				</p>
 				<p>
-					To thoroughly appreciate the LLN it is be understood what is stated.  In order to discuss the weak law we need to become familiar with a convept of convergence called convergence in probability. This is defined as the lim ... Giving the epsilon-delt definition of this, it means that, for all epsilon and delta, there exists a N(e) such that for all n>N, The prob of being far away from the limit is small (or being close to it is large). To define this our random variable must lie in some metric space so that we can discuss distances. In simpler terms, when we say a random variable converges in probality to some limit (which may be a random vairable), we mean that if you give me any threshold of deviation, I go down far enough in the sequence that the probability of going past that deviation is sufficiently small. Proved using chebyshev/Markov inequality.
-					<br>
-					We apply this is concept to formall state the weak law: Let Sn = . and then The average converges to the expectation. We can eliminate some of these assumptions and still come up with a formal proof. I will prove with second moment bounded but there are many other variations
+					To thoroughly appreciate the LLN it must be understood what is being stated. It states that there is a determistic relationship between the sample mean, which is a random variable, and the expectation which is simply a constant. The relationship is through a convergence, but not like the one that is usually taught in calculus. Because these are random variables (i.e. value not known until observed), a new type of convergence must be defined that can deal with this.
+				</p>
+				<p>
+					We define convergence in probability as \(\lim_{n \to \infty} \mathbb{P} [\vert \frac{S_n}{n} - \mathbb{E} [X] \vert > \epsilon] = 0 \forall \epsilon > 0 \). In epsilon-delta terms, \(\forall \epsilon , \delta > 0, \exists N(\epsilon, \delta)\) such that \(\forall n \geq N(\epsilon, \delta), \mathbb{P} [\vert \frac{S_n}{n} - \mathbb{E} [X] \vert > \epsilon] \leq \delta \). In words, we say that is unlikely that the sample average will deviate far away from the individual expecation as n increases. Similar to regular convergence, the behavior at the beginning of the sequence doesnt matter much, only that the tail settles to the expectation in metric distance and in probability. This is usually proved using 
+				<a href = "https://en.wikipedia.org/wiki/Markov%27s_inequality">		Chebyshev/Markov inequality
+				</a>.
 				</p>
 				<h2>
 					Strong Law of Large Numbers:
 				</h2>
-				<p>
-					If there is a weak law then there should be a strong law. This one features a different and stronger version of convergence. This is called almost sure convergence (almost everywhere, ...). I will write it symbolically and state the epsilon delta defition. For all epsilon positive, there exists a N(e) > 0 such that for all n>N, events that make the limit far apart have 0 probability (or the ones that make them close is 1). More simply, if you give me a small positive numnber, I can find a point in the sequence where the probability of event being less than that sequence is partically small. Proved using Borel-Cantelli usually.
-					<br>
-					It may be hard to distinguish between the two but there are differences. In convergence by probability we say that the probability of events that make the difference large is small. In convergence a.s., we say that the difference has no chance of happening after a certain point. Therefore, if something converges a.s. then it must converge in probability.  
-					<br>
-					The strong law states that the partial sum converges almost surely to its expectation. We need stronger assumptions such as IID and second moment for this. It was provbed by truncation in my course but I am sure there are other ways to prove this. 
-					<br>
-					Both of these results are remarkable. It is saying that if we keep sampling and compute averages, we will get something like the weighted mean that we formulated earlier. This is for all iid samples no matter their structure. We will see how this is used in my statistics class.
+				<p style = "margin-left: 30px;">
+					Let \(X_1, X_2,...\) be independent and identically distributed (iid) random variables with \(\mathbb{E}[X_i] \lt \infty \). Let \(S_n := \sum_{i=1}^{n} X_i\) be the partial sum. Then
+					\[\frac{S_n}{n} \overset{a.s.} \to \mathbb{E}[X]\]
 				</p>
-				<h1>
-					Central Limit Theorem
+				<p>
+					If there is a weak law then there should be a strong law. The strong long features a stronger and maybe unrealistic mode of convergence called almost sure convergence (or almost everywhere, ...). The definition for a.s. convergence is \(\mathbb{P} [\lim_{n \to \infty} \vert \frac{S_n}{n} - \mathbb{E} [X] \vert > \epsilon] = 0\). In epsilon-delta arguments, \(\forall \epsilon > 0, \exists N(e) > 0\) such that \(\forall n>N(e), \mathbb{P} [\vert \frac{S_n}{n} - \mathbb{E} [X] \vert > \epsilon] = 0\). In words, for any epsilon given, if we go far enough in the tail sequence of \(S_n\), any event that makes \(S_n\) vary far away from the expectation has probability 0 (or the ones that make them close is 1). This is proved using Borel-Cantelli lemmas and a truncation argument usually.
+				</p>
+				<p>
+					It may be hard to distinguish between the strong and the weak law but there are differences. Convergence in probability specifies a probability threshold of \(\delta\) for events that make \(S_n\) "far away" from the expectation. Meanwhile, a.s. convergence requires that delta be 0. So as you can imagine, if something converges a.s., then it must converge in probability.  
+				</p>
+				<p>
+					<a href = "https://terrytao.wordpress.com/2008/06/18/the-strong-law-of-large-numbers/">The laws can be proved without the iid property and varying which moments are bounded</a>. Notice that the weak law does not tell us anything about the rate of convergence, it just says that more samples will get us closer. This is for all iid samples no matter their underlying distribution. We will see how this is used later in statistics.
+				</p>
+				<h1 id = "CLT">
+					Central Limit Theorem (CLT)
 				</h1>
+				<p>
+					The second fundamental theorem that I learned and it characterizes the distribution of the sum of random variables
+				</p>
 				<h2>
 					Characteristic Functions
 				</h2>
 				<p>
-					When the central limit theorem is proved there is usually some discussion on characteristic functions. Most of you may be familiar with moment generating functions and they are very similar. We define a characteristic function because every random variable has one as opposed to a moment generation function. The imaginary gives us more flexibility ?? E[itX]. We can use these functions to generate moments. And if moments all moments of random variable is finite, then it has a unique characteristic funciton representation. 
-					<br>
-					There are other properties
-					<br>
-					There is another type of convergence, called convergence in distribution. This is the weeakewst of the three and is the most intuitive. Let Fn be the cdf of the nth random variable Xn. The epsilon delta defintion of this is that for a fixed x and for all epsilon, there exists a N(e) such that for all n>N, fn(x) - F(x)  epsilon. This is just pointwise convergence of afunction that you would typically see in a calculus class. In order to prove this, we can simply take limits of the functions  
+					Before I introduce Central Limit Theorem, I will discuss characteristic functions (cf). Partial sums of random variables have occured pretty often in the previous paragraphs. Determining the distribution of these sums of random variables using straight-forward methods such as convolution can be tedious. Therefore a new method of characterizing the distribution of sums of random variables.
+				</p>
+				<p>
+					Some may be familiar with moment generating functions (mgf), \(\mathbb{E} [e^{tX}]\). But this do not always exist because the function \(e^{tX}\) is not bounded and therefore the expectation may be infinity. *It can be shown that in order for the mgf to exist, the tail of the distribution must be exponentially bounded. Where the existence of the mgf is lacking, the cf makes up for it and adds in a few properties of its own. The cf is defined as \(\mathbb{E} [e^{itX}] = \mathbb{E} [cos(tX) + isin(tX)]\) (for those familiar with Euler's formula) *Look how this relates to Fourier transforms*. Notice that \(\vert e^{itX} \vert \lt 1\) and therefore always exists.
+				 </p>
+				 <p>
+					Characteristic functions can manipulate the sum of random variables into the product of cfs. By the uniqueness theorem, each distribution has its own characteristic function. Also, by the continuity theorem, pointwise convergence of cf imply convergence of random variables. Thus if we can show that the characteristic function of a sum of random variables converges to something then we have shown that the distribution of the sum is converging to something. Through Taylor expansion, we can see that the sum of random variables converges to the cf of a normal random variable.
+				</p>
+				<p>
+					We can also show that the expectation converges by <a href = "https://en.wikipedia.org/wiki/Convergence_of_measures#Weak_convergence_of_measures">Portmanteau theorem </a>. The version we learned uses the Lindenberg-fuller triangulization proof.
 				</p>
 				<h2>
 					Central Limit Theorem:
 				</h2>
-				<p>
-					The reason characteristic functions was brought out was because since the normal distrution has a unique characteristic function, if we can show pointwise convergence to that function then we have shown that their convergence is in distribution. We know that the mg of the normal is e^t2 then represent the sum of random variables as X1+X2+...+Xn. Then we can show through taylor series expansion that this conges to the stadard normal. I took the mean of these random variables to be 0 and we can do that because we can transform the.
-					<br>
-					We can also show that the expectation converges by Portmanteau. The version we learned uses the linedeberg0fuller triangulization proof.
-					<br>
-					The central limit theorem can also be rewritten as root n( sample mean), This basically means that if we scale the difference between the smaple mean and true mean (which we know goes to 0 by the LLN) then we get an interesting distribution. The scale factor of root n is cruicial because other wise, it would just go to 0 by LLN	
-					<br>
-					This is a crucial result. It gives us a way to approximate large sample distributions. It doesnt say anything about a random variable being distributed normal. Its that the sum goes to a normal. As you look at stats literature, you will see how important and easy to handle the normal distribution is. 
+				<p style = "margin-left: 30px;">
+					Let \(X_1, X_2,...\) be independent and identically distributed (iid) random variables with \(\mathbb{E}[X_i] \lt \infty \) and \(\mathbb{E}[X_{i}^{2}] \lt \infty\). Let \(S_n := \sum_{i=1}^{n} X_i\) be the partial sum. Then
+					\[F_{\frac{S_n}{n}} (x) \overset{d} \to \Phi(\frac{x - \mathbb{E} [X]}{\sqrt{n * \mathbb{V}ar[X_1]}})\]
+					where \(\Phi(x)\) is the cdf of a normal(0,1) random variable 
 				</p>
-				<h1>
+				<p>
+					Indeed the setup starts off the same as LLN by computing the sample average of of iid random variables. Then there is a claim that for a large enough n, the distribution of the sample mean looks roughly normal. There is an additional assumption of the finite 2nd moment because the variance is a parameter of the normal distribution. It extends from the LLN which stated that there is "high" probabiliy of getting the true expectation as the sample mean, and instead gives us a probability around that expectation. 
+				</p>
+				<p>
+					The new convergence should be a familiar one. It is simply the pointwise convergence of functions at continuity points of the normal distribution (i.e. \(\mathbb{R}\)). The cdf's of \(\frac{S_n}{n}\) and the normal distribution evaluated at certain points cannot be too far apart. The implications of this is mostly seen in statistics where we gain the ability to get asymptotic and finite distribution for estimators. The normal distribution is also extremely simple to work with because it has nice well-studied properties.
+				</p>
+				<p>
+					The central limit theorem can also be rewritten as \[\frac{S_n - n * \mathbb{E} [X_1]}{\sqrt{n* \mathbb{V}ar[X_1]}} =  \frac{\sqrt{n}}{\sqrt{\mathbb{V}ar[X_1]}}(\frac{S_n}{n} - \mathbb{E}) \overset{d} \to \Phi(x) \]
+					The second term gives a bit more intuition of what is actually going on. For large n, the sample mean gets very close to the expectation by LLN. Hence the difference \(\frac{S_n}{n} - \mathbb{E} [X_1]\) must get pretty small and converge to 0. In order to slow this this convergence, we scale it by \(\sqrt{n}\) to magnify the deviations. The deviations tend to act as a normal random variable.
+				</p>
+				<p>
+					Notice there is no mention of the actual underlying distribution of \(X_i\). Also notice that the central limit theorem only discusses the what the resulting distribution of the normalized sum of random variables is.
+				</p>
+				<h1 id = "MC">
 					Markov Chains
 				</h1>
 				<p>
-					Markov chains are the first stochastic process that we discussed. The formal definiton of a stochastic process is a sequence of random vairables defined on the same measure space indexed by something like time. So an iid sample can be considered a stochastic process but tht isnt really interesting. the key defining point of a markov chain is that it possesses the markovian property. That the next step on depends on the current step. It is independent of the steps it took to get to the point its at today. 
-					<br>
-					A good example of a random chain is a random walk. We flip a coin and determine were we will go in the next period. Nothing before is factored into the probability of the next move. When we discuss markov chains we only care about what will happen in the long run. That is what proportion of time will the chain spend ina a certain state. This proportion exists when we have an irreducible and aperied markov chain. I.e. we can get to any state no matter how far along the chain has been running for.
-					<br>
-					When the state space is not finite, there are times when it is impossible for a chain to return to a state after leaving. We call this a transient markov chain and those do not have a stationary distribution. This make intuitive sense because there is an infitntie amount of time that we will no longer be in that state after we leave so the fraction of time spent there is 0
-					<br>
-					Strong Markov
-					We learned about coupling
+					A fairly common stochastic process that is simple to deal with
 				</p>
-				<h1>
+				<p>
+					A sequence of random variables \(X_{t \in I}\), where \(I\) is an index set (think time). is a stochastic process if they are all defined on the same measure space \((\Omega, \mathcal{F}, \mathbb{P})\). So an iid sample can be considered a stochastic process but that isnt really interesting. However, Markov chains  on the other hand are interesting and intuitive to understand.
+				</p>
+				<p>
+					To define a MC what is needed is the transition matrix \(\mathcal{P}\) and state space \(S = \{1, 2, 3, ..., k\}\). I will only discuss homogenous discrete time MC for now, so let index set \(I = {1, 2, 3,...}\). The transition matrix is
+					\[\mathcal{P} = \begin{pmatrix} a_{11} & a_{21} & ... & a_{k1} \\ a_{12} & a_{22} & ... & a_{k2} \\ . & . & ... & . \\ a_{1k} & a_{2k} & ... & a_{kk} \end{pmatrix}\]
+					
+					The crucial point of a MC is that it possesses the Markovian property. This means that the next step of transition matrix is independent of the path it took to get to its current position. The only thing that matters, in a probabilistic sense, is the position that it is at today. More explicitly, \(\mathbb{P}[X_{n+1} = j \vert X_n = i_n, X_{n-1} = i_{n-1}, X_1 = i_1]\) =\( \mathbb{P}[X_{n+1} = j \vert X_n = i_n]\)
+				</p>
+				<p>
+					A good example of a MC is a random walk (i.e. flip a coin and we go right if heads, left if tails and handle edge cases however we want to). 
+				</p>
+				<p>
+					Usually, the only MC we care about are the ergodic ones (aperiodic and irreducible) because those have long run behaviors that we can compute. Long-run behavior in the sense of the proportion of time the chain spends in each state. This distribution is called the stationary distribution and denoted by the vector <b>\(\pi\)</b> and \(\pi(x) = \lim_{n \to \infty} \mathbb{P}[X_n = x]\), where \(x \in S\) If <b>\(\pi\)</b> is a stationary distribution then \(\mathbf{\pi}^T \mathcal{P} = \mathbf{\pi}\). The stationary distribution can be thought of as in eigenvector with eigenvalue 1. Which we can show to exist if the chain is irreducible. The stationary distribution \(\pi(x)\) can be viewed as \(\frac{1}{\mathbb{E}[\text{length of excursion from x back to x}]}\). Usually, the best way to compute this is through first step analysis.
+				</p>
+				<p>
+					We also get an extension of the LLN for MC called the Ergodic Theorem. If
+					\(\{X_n\}_{n \geq 0}\) is a MC with transition matrix \(\mathcal{P}\) and stationary distribution \(\pi\) and \(f:S \to \mathbb{R}\) then 
+					\[\frac{1}{n} \sum_{i=0}^{n-1} f(X_i) \overset{a.s} \to \sum_{x \in S} \pi (x) f(x)\]
+					The result is the expectation of the chain evaluated at the transformed state space via the function f. The sample average of the chain should get closer and closer to the actual mean of the distribution.
+				</p>
+				<p>
+					The state space does not have to be finite, it can be extended into a countable infinite set. When \(S\) is extended into infinities it adds a new dimension to the irreducible chain. In a finite irreducible chain, there is always a positive probability of going from one state to another in some number of steps. When the state space becomes infinity, there is a chance that there may be no chance of coming back to a state after leaving it even if all the states communicate. If there is a chance of never coming back to a state after leaving it, then the chain is called transient, otherwise it is recurrent. Furthermore, if a chain is reccurent it can be positive recurrent or null recurrent. These can be seen a random walk example where p is less than, equal to or greater than 1/2.
+				 </p> 
+				 <p>
+					The stationary distribution also extends to the infinite state space. If the chain is transient then it doesnt make sense to discuss the stationary distriution because the probability of being in that state in the long run is 0. However, if the chain is recurrent, the stationary distribution can be determined as the expected time until return.
+				</p>
+				<p>
+					Strong Markov Theorem - independence of future and past???
+				</p>
+				<h1 id = "Mg">
 					Martingale
 				</h1>
 				<p>
-					MArtingales came after we learned more about conditional propbability. It was the right transition because in order to understand martingales, one has to be familiar with conditioning. It is another king of stochastic process. The concept of a martingale originates from gambling. It's defining property is that E[], or more simply my expectation for tomorrow based on what i have today is that same as what i have today. Todays information is all I have. And I am not expected to change over time.
-					<br> 
-					An interesting problem we got is when we saw that a markov chain that is a mg then it has an absorbing state, if it is in finite state space.
-					<br>
-					We saw the optional stopping time theorem that says that a stopped process has the same expectation as the mg if we can somehow bound the mg or the stopping time. 
-					<br>
-					We also saw Doobs mg convergence theorem where we see that a if sup of expectation is bounded then we can show that teh mg converges almost surely. 
+					A stochastic process obsessed with gambling
 				</p>
-				<h1>
+				<p>
+					Martingales appear after conditional probability. It is the right transition because conditioning on \(\mathcal{F_{t \in I}}\) (called filtrations is the crucial to understanding martingales, one has to be familiar with conditioning. It is another king of stochastic process. The defining property of a martingale \(\{X_t\}_{t \geq 0}\) is that \(\mathbb{E}[X_t \vert \mathcal{F} = X_s]\) where s \(\lt\) t. More simply my expectation for my profit tomorrow based on what I have today is that same as what I have today. Another way of saying this that I am expected to have the same profit each round. Therefore \(\mathbb{E}[X_t]= \mathbb{E}[X_s] = \mathbb{E}[X_0]\).
+				</p>
+				<p>
+					If a stopping time \(T := \{inf_{n \geq 0} \vert X_n \in A\}\)  (i.e. first time something happens) introduced where \(A\) is some event then the stopped process, \(X_{min\{n, T\}}\) is still a martingale. If we can make some claims about the boundedness of \(T\) or bound the process itself then the Optional Stopping Time theorem states that \(\lim_{n \to \infty} \mathbb{E}[X_{min\{n, T\}}]\) = \(\mathbb{E}[\lim_{n \to \infty} X_{min\{n, T\}}] = \mathbb{E}[X_0]\).
+					This is useful for computing probability of absorbing states.
+				</p>
+				<p>
+					When the martingale can be bounded, Doobs Convergence theorem states that the martingale converges a.s. to a random variable. Usually this end up being a fixed point???
+				</p>
+				<h1 id = "PPP">
 					Poisson Process:
 				</h1>
 				<p>
-					This may tbe the most useful stochastic process because it is actually used to model things liek call centers. It is a counting process that relates the exponential distribtion and the poisson distrubiton. We can model the number of event that ecur in a time interval as a poissoin distribution; and the time until event hppen can me modelled as an exponential distribution. 
-					<br>
-					USing the supoerposiiton and __position of the process we can intuiviyl define some propoerties of the poisson and exponential distribution. Max of exponential is a benoulii. given we have n total, the total is multinomial
-					<br>
-					then this is used as the building blocks of the continuous markov chain
+					The last and probably most applicable stochastic process discussed
+				</p>
+				<p>
+					The Poisson Process is a counting process that relates the exponential distribution and the poisson distribution. It models the number of event that occur in a time interval as a Poisson distribution; and the time until event happens as an exponential distribution. 
+				</p>
+				<p>
+					Using the superpositon and thinning properties of the process, a few intuitive results about poisson and exponential distribution can be demonstraties; i.e. max of exponential is a bernoulli. given we have n total, the total is multinomial
+				</p>
+				<p>
+					The Poisson process is the building blocks of the continuous time MC. It can be taught of as that the chain only transitions when the the process gets incremented by 1, which happens with an exponential distribution. The transition matrix turns into the transistion rate matrix.
 				</p>
 		</body>
 	</article>
