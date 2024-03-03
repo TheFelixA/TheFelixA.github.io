@@ -2,6 +2,15 @@
 _site
 .sass-cache
 .vagrant
+CHANGELOG.md
+CNAME
+Dockerfile
+Gemfile
+Gemfile.lock
+LICENSE
+README.md
+Vagrantfile
+_drafts
 
 # general
 .DS_Store
