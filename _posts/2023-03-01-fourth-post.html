@@ -1,7 +1,7 @@
 ---
 layout: post
 category: Education
-tags: [Math, Statistics]
+tags: [Logistic Regression, Empirical]
 title: The Must Effect on Bitcoin
 image: /img/cards.png
 ---
@@ -37,9 +37,7 @@ image: /img/cards.png
 				<p>
 					Elon Musk is one of the most prominent entrepreneurs of our generation. Known as the CEO of Tesla, Space X and The Boring Company (TBC). While most CEOs are relatively unknown and keep a low profile, Musk has built a large following in the online community. He has amassed 65.1 million followers on Twitter and is even known by the nickname Papa Musk on the infamous subreddit WallStreetbets. While many of his loyalists are impressed by his work ethic and operational achievements, some adhere to his financial thoughts as gospel. 
 
-Elon has become a habitual tweeter <a id = "footnote-1-ref" href = "#footnote-1">[1]</a> \footnote{See report from WSJ \href{https://graphics.wsj.com/elon-musk-twitter-habit-analysis/}{(Report)}}
-
-There are many reasons why this could be. Musk is known to make official business statements on Twitter. For example, he has claimed about Tesla's acquisition by Saudi Arabia. This later got him in trouble with the SEC and caused him to relinquish his chairman position. The chart below shows some of Musk's effects on Tesla's stock. This is by no means exhaustive. 
+Elon has become a habitual tweeter <a id = "footnote-1-ref" href = "#footnote-1">[1]</a>. There are many reasons why this could be. Musk is known to make official business statements on Twitter. For example, he has claimed about Tesla's acquisition by Saudi Arabia. This later got him in trouble with the SEC and caused him to relinquish his chairman position. The chart below shows some of Musk's effects on Tesla's stock. This is by no means exhaustive. 
 				</p>
 				<p>
 					Tesla stock is not the only asset that Musk dabbles in. His tweets have corresponded to timely moves in cryptocurrencies. One that has been looked through is Dogecoin. The figure below presents a time series of the Dogecoin to USD price series. The prices are in log, and because Dogecoin has a small fractional value compared to the dollar, we end up with a negative number. In this case, we can see that Musk has some influence on the price, especially since it remains relatively flat until he tweets about it. Coincidently, these dates also correspond to a major shift in the TSLA stock price. See the appendix for a chart.
@@ -47,119 +45,114 @@ There are many reasons why this could be. Musk is known to make official busines
 				<p>
 					After witnessing these price movement after a statement from Elon Musk, we may wonder if this holds for a currency like Bitcoin, which has larger volume than Doge but is still prone to manipulation. The cryptocurrency sphere is more unregulated than securities and stock so they are no criminal charges to any action completed by Musk. We must see what the data tells us to surmise that he is manipulating the market.
 				</p>
+<img src ="_images/musk/tsla1.jpg" alt = "Tesla Stock">
+<p>
+The closing price of TSLA from yahoo finance from xx/xx/2016 until xx/xx/2021. Prices are in logs in order to show the magnitude of the movements. The vertical lines indicate the date that Musk tweeted  
+</p>
+
+<p>
+Tesla stock is not the only asset that Musk dabbles in. His tweets have corresponded to timely moves in cryptocurrencies. One that has been looked through is Dogecoin. The figure below presents a time series of the Dogecoin to USD price series. The prices are in log, and because Dogecoin has a small fractional value compared to the dollar, we end up with a negative number. In this case, we can see that Musk has some influence on the price, especially since it remains relatively flat until he tweets about it. Coincidently, these dates also correspond to a major shift in the TSLA stock price. See the appendix for a chart.
+</p>
+<img src = "_images/musk/doge1.png" alt = "Doge Stock">
+<p>
+The closing price of DOGE/USD from Yahoo Finance, taken from coinmarketcap, from xx/xx/2016 until xx/xx/2021. Prices are in logs to show the magnitude of the movements. The vertical lines indicate the date that Musk tweeted.
+</p>
+
+<p>
+After witnessing these price movement after a statement from Elon Musk, we may wonder if this holds for a currency like Bitcoin, which has larger volume than Doge but is still prone to manipulation. The cryptocurrency sphere is more unregulated than securities and stock so they are no criminal charges to any action completed by Musk. We must see what the data tells us to surmise that he is manipulating the market.
+</p>
+
+<h1 id = "bg"> Background </h1>
+To learn more about crypto currencies, see my blog post here.
+
 				<h1 id = "data">
 					Data and Analysis:
 				</h1>
+<p>
+
+We briefly describe the data used in the paper. The price data for bitcoin/USD comes from CryptoCompare \footnote{\href{https://www.cryptocompare.com/coins/btc/charts/USDT?p=ALL}{Here}}. The reason for using this data is because it is well vetted and aggregates the price across multiple exchanges to get an index for BTC/USD price. The price reported is the volume-weighted price for each day. This is computed as the \[\text{Price} = \frac{\text{Volume to}}{\text{Volume From}}\] where Volume to is the amount of USD converted in BTC and Volume From is the amount of BTC purchased. 
+
+Next, we obtain the Elon Musk Twitter data from Kaggle \footnote{\href{https://www.kaggle.com/ayhmrba/elon-musk-tweets-2010-2021?select=2021.csv}{Here}}. The data is only until March 2021 so we have to append it with a few other pupular tweets that happened this year. The Kaggle data is complete; providing url of tweet, number of likes/retweets/replies etc. The data was directly pulled from the Twitter API and cleaned up to a CSV format. 
+
+For the Twitter data, there are xxx tweets that Musk had in this period. We narrowed it down to ~100 relevant to Bitcoin or Crypto in some way. We did not do any NLP because of the small size. However, NLP would be a good idea if we were to add other prominent crypto enthusiasts, such as Michael Saylor. Because of the subjectivity in determining if tweets were bullish or bearish on crypto, we take a conservative approach and neutralize most of them (DO ROBUSTNESS CHECK ????). In the appendix, we list some examples of bullish and bearish tweets. We also acknowledge days where crypto related tweets did not occur.
+
+Furthermore, as a sanity check, we use Google Trends to see if Musk causes interest in crypto after his tweets. The data is only available in monthly format (\url{https://trends.google.com/trends/explore?date=2017-01-01\%202021-11-07&geo=US&q=elon\%20musk\%20crypto}).
+
+The previous TSLA stock and DOGE/USD data is from yahoo finance.
+
+We note that daily data may not be the most granular. BTC/USD price movement frequently changes with the order book. Twitter data is also high frequency, with tweets recorded up to the minute. In the age of digital information, readers get the information instantly and can take action then instead of the day after. However, our analysis is more naive and tries to avoid this complexity. As many people follow Musk, we argue that the effects of a Tweet should last at least a day.
+</p>
+
+<h2 id = "method">Method</h2>
+<p>
+Before we begin, we display the log time series of the Bitcoin price and the associated volume. As you can see, the price has been very volatile and induces a
+
+Before we start, we need a measure of stickiness for the uptrend of bitcoin. We label this as \(s\). On average the length of price increase streak for bitcoin is ..
+
+USE EXPONENTIAL SMOOTHING THAT MINIMIZES SSE FOR EMA (\url{https://en.wikipedia.org/wiki/Exponential_smoothing#Optimization})
+</p>
+<p>
+There are \(c \in \{1,2,...C\}\) cryptocurrencies
+Denote the spot price of cryptocurrency \(c\) at time \(t\) as \(S_t^c\)
+Denote the volume by \(V_t^c\)
+The daily return is \[R_t^c := \frac{\Delta S_t^c}{S_t^c} = \frac{S_t^c - S_{t-1}^c}{S_t^c}\]
+    Note: Because of the extreme price volatility between daily returns, the approximation \(\log(S_t^c) - \log(S_{t-1}^c) \neq Denote the indication of an uptrend from period \(t-1\) to \(t\) as \[U_t^c := \mathcal{I}\{R_t^c \geq R_{t-1}^c\}\]
+    Note that the above definition is more for momentum. The below just notices if positive of not
+    \[U_t^c := \mathcal{I}\{R_t^c \geq 0\}\]
+The analogous downtrend \[D_t^c := \mathcal{I}\{R_t^c < R_{t-1}^c\}\]
+    \[D_t^c := \mathcal{I}\{R_t^c < 0\}\]
+Denote the collection of periods with uptrends as \(\mathcal{U}^c := \{t: U_t^c = 1\}\) and downtrends as \(\mathcal{D}^c := \{t: D_t^c = 1\}\)
+Let \(s\) denote the number of periods that an up/down-trend must happen in order for it to be called a streak/trend
+Denote the collection of all trends as \[\mathcal{T}^c := \{t: \{t,..., t+s\} \in \mathcal{U}^c \cup \{t,..., t+s\} \in \mathcal{U}^c \}\]
+    Note: These are random times but not stopping times because you have to look ahead in order to know if you are in a trend
+Denote the indicator of a part of trend by \(Y_t^c\)
+Let influence be denoted by \(i \in \{1,...,N\}\)
+Denote if the influencer tweeted in period \(t\) by the indicator \(A_t^i := \mathcal{I}\{\}\)\
+    Sum of tweets is \(S_A^i := \sum_{t=1}^{T} A_t^i\)
+Denote if the tweet was crypto related as \(C_t^i := \mathcal{I}\{\}\)\
+    Sum of crypto tweets is \(S_C^i := \sum_{t=1}^{T} C_t^i\)
+Denote the bullishness of the tweet by 
+    \[B_t^c := 
+            \begin{cases}
+                1 & \text{Bullish tweet}\\
+                0 & \text{Neutral tweet}\\
+                -1 & \text{Bearish tweet}
+            \end{cases}
+    \]
+</p>
+<h2 id = "model">Model & Results</h2>
+<p>
+Probability that there is an uptrend the day Musk tweets something crypto related
+\begin{align}
+    \log \Big(\frac{\mathbb{P}[U_t = 1]}{1 - \mathbb{P}[U_t = 1]}\Big) = \beta_0 + \beta_1 S^U_{t-1} + \beta_2 C_{t}
+\end{align}
+
+Or is it that Musk tweets because there is an uptrend
+\begin{align}
+    \log \Big(\frac{\mathbb{P}[C_t = 1]}{1 - \mathbb{P}[C_t = 1]}\Big) = \beta_0 + \beta_1 S^U_{t-1} + \beta_2 U_{t}
+\end{align}
+
+</p>
 
 				<h1 id = "conclusion">
 					Conclusion
 				</h1>
-				<p>
-					The second fundamental theorem that I learned and it characterizes the distribution of the sum of random variables
-				</p>
-				<h2>
-					Characteristic Functions
-				</h2>
-				<p>
-					Before I introduce Central Limit Theorem, I will discuss characteristic functions (cf). Partial sums of random variables have occured pretty often in the previous paragraphs. Determining the distribution of these sums of random variables using straight-forward methods such as convolution can be tedious. Therefore a new method of characterizing the distribution of sums of random variables.
-				</p>
-				<p>
-					Some may be familiar with moment generating functions (mgf), \(\mathbb{E} [e^{tX}]\). But this do not always exist because the function \(e^{tX}\) is not bounded and therefore the expectation may be infinity. *It can be shown that in order for the mgf to exist, the tail of the distribution must be exponentially bounded. Where the existence of the mgf is lacking, the cf makes up for it and adds in a few properties of its own. The cf is defined as \(\mathbb{E} [e^{itX}] = \mathbb{E} [cos(tX) + isin(tX)]\) (for those familiar with Euler's formula) *Look how this relates to Fourier transforms*. Notice that \(\vert e^{itX} \vert \lt 1\) and therefore always exists.
-				 </p>
-				 <p>
-					Characteristic functions can manipulate the sum of random variables into the product of cfs. By the uniqueness theorem, each distribution has its own characteristic function. Also, by the continuity theorem, pointwise convergence of cf imply convergence of random variables. Thus if we can show that the characteristic function of a sum of random variables converges to something then we have shown that the distribution of the sum is converging to something. Through Taylor expansion, we can see that the sum of random variables converges to the cf of a normal random variable.
-				</p>
-				<p>
-					We can also show that the expectation converges by <a href = "https://en.wikipedia.org/wiki/Convergence_of_measures#Weak_convergence_of_measures">Portmanteau theorem </a>. The version we learned uses the Lindenberg-fuller triangulization proof.
-				</p>
-				<h2>
-					Central Limit Theorem:
-				</h2>
-				<p style = "margin-left: 30px;">
-					Let \(X_1, X_2,...\) be independent and identically distributed (iid) random variables with \(\mathbb{E}[X_i] \lt \infty \) and \(\mathbb{E}[X_{i}^{2}] \lt \infty\). Let \(S_n := \sum_{i=1}^{n} X_i\) be the partial sum. Then
-					\[F_{\frac{S_n}{n}} (x) \overset{d} \to \Phi(\frac{x - \mathbb{E} [X]}{\sqrt{n * \mathbb{V}ar[X_1]}})\]
-					where \(\Phi(x)\) is the cdf of a normal(0,1) random variable 
-				</p>
-				<p>
-					Indeed the setup starts off the same as LLN by computing the sample average of of iid random variables. Then there is a claim that for a large enough n, the distribution of the sample mean looks roughly normal. There is an additional assumption of the finite 2nd moment because the variance is a parameter of the normal distribution. It extends from the LLN which stated that there is "high" probabiliy of getting the true expectation as the sample mean, and instead gives us a probability around that expectation. 
-				</p>
-				<p>
-					The new convergence should be a familiar one. It is simply the pointwise convergence of functions at continuity points of the normal distribution (i.e. \(\mathbb{R}\)). The cdf's of \(\frac{S_n}{n}\) and the normal distribution evaluated at certain points cannot be too far apart. The implications of this is mostly seen in statistics where we gain the ability to get asymptotic and finite distribution for estimators. The normal distribution is also extremely simple to work with because it has nice well-studied properties.
-				</p>
-				<p>
-					The central limit theorem can also be rewritten as \[\frac{S_n - n * \mathbb{E} [X_1]}{\sqrt{n* \mathbb{V}ar[X_1]}} =  \frac{\sqrt{n}}{\sqrt{\mathbb{V}ar[X_1]}}(\frac{S_n}{n} - \mathbb{E}) \overset{d} \to \Phi(x) \]
-					The second term gives a bit more intuition of what is actually going on. For large n, the sample mean gets very close to the expectation by LLN. Hence the difference \(\frac{S_n}{n} - \mathbb{E} [X_1]\) must get pretty small and converge to 0. In order to slow this this convergence, we scale it by \(\sqrt{n}\) to magnify the deviations. The deviations tend to act as a normal random variable.
-				</p>
-				<p>
-					Notice there is no mention of the actual underlying distribution of \(X_i\). Also notice that the central limit theorem only discusses the what the resulting distribution of the normalized sum of random variables is.
-				</p>
-				<h1 id = "MC">
-					Markov Chains
-				</h1>
-				<p>
-					A fairly common stochastic process that is simple to deal with
-				</p>
-				<p>
-					A sequence of random variables \(X_{t \in I}\), where \(I\) is an index set (think time). is a stochastic process if they are all defined on the same measure space \((\Omega, \mathcal{F}, \mathbb{P})\). So an iid sample can be considered a stochastic process but that isnt really interesting. However, Markov chains  on the other hand are interesting and intuitive to understand.
-				</p>
-				<p>
-					To define a MC what is needed is the transition matrix \(\mathcal{P}\) and state space \(S = \{1, 2, 3, ..., k\}\). I will only discuss homogenous discrete time MC for now, so let index set \(I = {1, 2, 3,...}\). The transition matrix is
-					\[\mathcal{P} = \begin{pmatrix} a_{11} & a_{21} & ... & a_{k1} \\ a_{12} & a_{22} & ... & a_{k2} \\ . & . & ... & . \\ a_{1k} & a_{2k} & ... & a_{kk} \end{pmatrix}\]
-					
-					The crucial point of a MC is that it possesses the Markovian property. This means that the next step of transition matrix is independent of the path it took to get to its current position. The only thing that matters, in a probabilistic sense, is the position that it is at today. More explicitly, \(\mathbb{P}[X_{n+1} = j \vert X_n = i_n, X_{n-1} = i_{n-1}, X_1 = i_1]\) =\( \mathbb{P}[X_{n+1} = j \vert X_n = i_n]\)
-				</p>
-				<p>
-					A good example of a MC is a random walk (i.e. flip a coin and we go right if heads, left if tails and handle edge cases however we want to). 
-				</p>
-				<p>
-					Usually, the only MC we care about are the ergodic ones (aperiodic and irreducible) because those have long run behaviors that we can compute. Long-run behavior in the sense of the proportion of time the chain spends in each state. This distribution is called the stationary distribution and denoted by the vector <b>\(\pi\)</b> and \(\pi(x) = \lim_{n \to \infty} \mathbb{P}[X_n = x]\), where \(x \in S\) If <b>\(\pi\)</b> is a stationary distribution then \(\mathbf{\pi}^T \mathcal{P} = \mathbf{\pi}\). The stationary distribution can be thought of as in eigenvector with eigenvalue 1. Which we can show to exist if the chain is irreducible. The stationary distribution \(\pi(x)\) can be viewed as \(\frac{1}{\mathbb{E}[\text{length of excursion from x back to x}]}\). Usually, the best way to compute this is through first step analysis.
-				</p>
-				<p>
-					We also get an extension of the LLN for MC called the Ergodic Theorem. If
-					\(\{X_n\}_{n \geq 0}\) is a MC with transition matrix \(\mathcal{P}\) and stationary distribution \(\pi\) and \(f:S \to \mathbb{R}\) then 
-					\[\frac{1}{n} \sum_{i=0}^{n-1} f(X_i) \overset{a.s} \to \sum_{x \in S} \pi (x) f(x)\]
-					The result is the expectation of the chain evaluated at the transformed state space via the function f. The sample average of the chain should get closer and closer to the actual mean of the distribution.
-				</p>
-				<p>
-					The state space does not have to be finite, it can be extended into a countable infinite set. When \(S\) is extended into infinities it adds a new dimension to the irreducible chain. In a finite irreducible chain, there is always a positive probability of going from one state to another in some number of steps. When the state space becomes infinity, there is a chance that there may be no chance of coming back to a state after leaving it even if all the states communicate. If there is a chance of never coming back to a state after leaving it, then the chain is called transient, otherwise it is recurrent. Furthermore, if a chain is reccurent it can be positive recurrent or null recurrent. These can be seen a random walk example where p is less than, equal to or greater than 1/2.
-				 </p> 
-				 <p>
-					The stationary distribution also extends to the infinite state space. If the chain is transient then it doesnt make sense to discuss the stationary distriution because the probability of being in that state in the long run is 0. However, if the chain is recurrent, the stationary distribution can be determined as the expected time until return.
-				</p>
-				<p>
-					Strong Markov Theorem - independence of future and past???
-				</p>
-				<h1 id = "Mg">
-					Martingale
-				</h1>
-				<p>
-					A stochastic process obsessed with gambling
-				</p>
-				<p>
-					Martingales appear after conditional probability. It is the right transition because conditioning on \(\mathcal{F_{t \in I}}\) (called filtrations is the crucial to understanding martingales, one has to be familiar with conditioning. It is another king of stochastic process. The defining property of a martingale \(\{X_t\}_{t \geq 0}\) is that \(\mathbb{E}[X_t \vert \mathcal{F} = X_s]\) where s \(\lt\) t. More simply my expectation for my profit tomorrow based on what I have today is that same as what I have today. Another way of saying this that I am expected to have the same profit each round. Therefore \(\mathbb{E}[X_t]= \mathbb{E}[X_s] = \mathbb{E}[X_0]\).
-				</p>
-				<p>
-					If a stopping time \(T := \{inf_{n \geq 0} \vert X_n \in A\}\)  (i.e. first time something happens) introduced where \(A\) is some event then the stopped process, \(X_{min\{n, T\}}\) is still a martingale. If we can make some claims about the boundedness of \(T\) or bound the process itself then the Optional Stopping Time theorem states that \(\lim_{n \to \infty} \mathbb{E}[X_{min\{n, T\}}]\) = \(\mathbb{E}[\lim_{n \to \infty} X_{min\{n, T\}}] = \mathbb{E}[X_0]\).
-					This is useful for computing probability of absorbing states.
-				</p>
-				<p>
-					When the martingale can be bounded, Doobs Convergence theorem states that the martingale converges a.s. to a random variable. Usually this end up being a fixed point???
-				</p>
-				<h1 id = "PPP">
-					Poisson Process:
-				</h1>
-				<p>
-					The last and probably most applicable stochastic process discussed
-				</p>
-				<p>
-					The Poisson Process is a counting process that relates the exponential distribution and the poisson distribution. It models the number of event that occur in a time interval as a Poisson distribution; and the time until event happens as an exponential distribution. 
-				</p>
-				<p>
-					Using the superpositon and thinning properties of the process, a few intuitive results about poisson and exponential distribution can be demonstraties; i.e. max of exponential is a bernoulli. given we have n total, the total is multinomial
-				</p>
-				<p>
-					The Poisson process is the building blocks of the continuous time MC. It can be taught of as that the chain only transitions when the the process gets incremented by 1, which happens with an exponential distribution. The transition matrix turns into the transistion rate matrix.
-				</p>
+<p>
+Musk has effect on starting or stopping a trend is unclear from this analysis. It doesn't seem to be the case on daily data, but it may be different on higher frequency. 
+</p>
+
+<h2 id = "pit">Pitfalls</h2>
+<p>
+Many things were glossed over in this work, and it is incomplete. We can always look at more cryptocurrencies and influencers. We could also look at the price of BTC relative to other cryptocurrencies instead of the dollar. There is no reason why we expected Musk's followers to be based in the States. But we argue that Musk's influence comes from his ability to draw in newcomers and those on the fence, unlike well-versed crypto investors who know multiple currencies.
+
+Our classification of tweets is too subjective overall, and we have to determine a method to make it more rigorous. Some more robustness checks may suffice. 
+
+We did not look sufficiently into volume data.
+
+We did not look at high-frequency data, but we can argue that the effects of Musk are "sticky"
+
+We are missing tweets that only contain an image or meme. Musk tends to do this but most likely the memes were not his originally so he would not start the trend in those cases.
+</p>
 <p id = "footnote-1">
   <a href = "footnote-1-ref">1.</a> See report from WSJ <a href = "https://graphics.wsj.com/elon-musk-twitter-habit-analysis">(Report)</a>
 
