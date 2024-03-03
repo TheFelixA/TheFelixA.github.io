@@ -86,7 +86,7 @@ social-network-links:
 #  twitter: daattali
 #  reddit: yourname
 #  google-plus: +DeanAttali
-  linkedin: felix-ackon-1507b6105
+   linkedin: felix-ackon-1507b6105
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
@@ -102,9 +102,9 @@ social-network-links:
 share-links-active:
   twitter: true
   facebook: false
-  google: true
+  google: false
   linkedin: true
-  github: true
+  github: false
 
 # How to display the link to the website in the footer
 # Remove this if you don't want a link in the footer
