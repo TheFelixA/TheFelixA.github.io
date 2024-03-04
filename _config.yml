@@ -21,8 +21,8 @@ description: A periodically updated blog featuring my accomplishments and though
 
 # List of links in the navigation bar
 navbar-links:
-  Posts: "https://TheFelixA.github.io"
   About Me: "aboutme"
+  Posts: "https://TheFelixA.github.io"
   Research: 
     - Publications: "mypubs"
     - Data Analysis and Visualizations: "showcase"
