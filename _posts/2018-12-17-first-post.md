@@ -3,6 +3,7 @@ layout: post
 title: Interesting Events from Undergrad
 subtitle: Interview, Study Abroad, and Theater
 image: /img/hello_world.jpeg
+permalink: blog/
 ---
 ### Interview
 I was interviewed by University of Delaware's College of Agriculture for my undergraduate research [_(interview)_](http://www1.udel.edu/udaily/2016/oct/statistics-102815.html/).
