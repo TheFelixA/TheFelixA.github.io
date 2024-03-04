@@ -16,17 +16,12 @@ layout: minimal
 </html>
 
 
-<!DOCTYPE html>
-<html>
-
-  {% include head.html %}
-
-  <body style="height:1000px;">
-
-  
-
-<h1>WELCOME<h1>
-<h2  
-</body>
-
-</html>
+{% for post in paginator.posts %}
+<h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+<p class="author">
+  <span class="date">{{ post.date }}</span>
+</p>
+<div class="content">
+  {{ post.content }}
+</div>
+{% endfor %}
