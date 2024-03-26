@@ -32,6 +32,7 @@ navbar-links:
     - Photography: "photos"
     - Running: "run"
     - Comedy: "comedy"
+  Bookings: "bookme"
   #Contact Me: 
   #Resources:
     #- Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
