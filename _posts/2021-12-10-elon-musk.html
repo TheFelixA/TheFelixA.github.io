@@ -154,26 +154,17 @@ Or is it that Musk tweets because there is an uptrend
 \end{align}
 
 </p>
-\begin{tabular}{@{}lllllllll@{}}
-\toprule
-                         & 2015  & 2016  & 2017  & 2018  & 2019  & 2020  & 2021                       &       \\ \midrule
-\multicolumn{1}{l|}{Jan} & -1.39 & -0.52 & -0.12 & \cellcolor[HTML]{CBCEFB} -1.36 & -0.32 & \cellcolor[HTML]{CBCEFB} 0.81  & \multicolumn{1}{l|}{\cellcolor[HTML]{67FD9A} 0.30}  & -0.37 \\ \midrule
-\multicolumn{1}{l|}{Feb} & 0.45  & 0.52  & 0.76  & \cellcolor[HTML]{CBCEFB} 0.30  & \cellcolor[HTML]{CBCEFB} 0.37  & \cellcolor[HTML]{FD6864} -0.33 & \multicolumn{1}{l|}{\cellcolor[HTML]{CBCEFB} 1.14}  & 0.46  \\ \midrule
-\multicolumn{1}{l|}{Mar} & -0.14 & -0.16 & -0.42 & -1.60 & 0.24  & \cellcolor[HTML]{67FD9A} -1.21 & \multicolumn{1}{l|}{ \cellcolor[HTML]{CBCEFB} 0.62}  & -0.38 \\ \midrule
-\multicolumn{1}{l|}{Apr} & -0.14 & 0.28  & 0.92  & 0.91  & \cellcolor[HTML]{67FD9A} 0.82  & \cellcolor[HTML]{CBCEFB}  1.03  & \multicolumn{1}{l|}{\cellcolor[HTML]{CBCEFB} -0.11} & 0.53  \\ \midrule
-\multicolumn{1}{l|}{May} & -0.15 & 0.52  & 1.49  & \cellcolor[HTML]{CBCEFB} -0.62 & 1.42  & \cellcolor[HTML]{CBCEFB} 0.29  & \multicolumn{1}{l|}{\cellcolor[HTML]{CBCEFB} -1.59} & 0.20  \\ \midrule
-\multicolumn{1}{l|}{Jun} & 0.44  & 0.68  & 0.00  & -0.60 & 0.62  & -0.21 & \multicolumn{1}{l|}{\cellcolor[HTML]{FD6864} -0.38} & 0.08  \\ \midrule
-\multicolumn{1}{l|}{Jul} & -0.68 & -0.30 & 0.33  & \cellcolor[HTML]{CBCEFB}0.54  & -0.21 & \cellcolor[HTML]{CBCEFB} 0.73  & \multicolumn{1}{l|}{0.61}  & 0.15  \\ \midrule
-\multicolumn{1}{l|}{Aug} & -0.70 & -0.26 & 1.72  & -0.21 & -0.19 & 0.06  & \multicolumn{1}{l|}{0.45}  & 0.12  \\ \midrule
-\multicolumn{1}{l|}{Sep} & 0.12  & 0.22  & -0.45 & -0.30 & -0.52 & -0.36 & \multicolumn{1}{l|}{-0.14} & -0.20 \\ \midrule
-\multicolumn{1}{l|}{Oct} & 0.93  & 0.53  & 1.27  & \cellcolor[HTML]{67FD9A} -0.13 & 0.23  & 0.79  & \multicolumn{1}{l|}{0.85}  & 0.64  \\ \midrule
-\multicolumn{1}{l|}{Nov} & 0.31  & 0.11  & \cellcolor[HTML]{CBCEFB} 1.41  & -1.52 & -0.76 & \cellcolor[HTML]{CBCEFB} 1.04  & \multicolumn{1}{l|}{-0.28} & 0.05  \\ \midrule
-\multicolumn{1}{l|}{Dec} & 0.52  & 0.85  & 0.60  & -0.36 & -0.07 & \cellcolor[HTML]{67FD9A} 1.32  & \multicolumn{1}{l|}{}      & 0.48 
- \\ \bottomrule
-\multicolumn{1}{l|}{}    & -0.04 & 0.21  & 0.63  & -0.41 & 0.14  & 0.33  & \multicolumn{1}{l|}{0.13}  &      
-\end{tabular}
+<figure>
+<img src = "/img/muskeffect/avglen.png" alt = "Average Len" width = "600" height = "400">
+<figcaption><a href = >Figure 3</a>:gives the avg length of daily streaks in a month. For example if the return is positive two days in a row, then it is a upstreak of length 1. If the return is negative then it is a down streak of length 1. The upsteak length is without parenthesis and the downstreak is in brackets. Our method suffers because if there is a streak of length 7, then there will also be astreak of length 6,5,...,1 and that creates downward bias on the average. To get a clearer sense of this we condition on solely when when is a streak  </figcaption>
+</figure>
+<figure>
+<img src = "/img/muskeffect/Musk_Effect.png" alt = "Trend" width = "600" height = "400">
+<figcaption><a href = >Figure 4</a>:This figure displays the average absulute return on the 18 unique days that Elon Musk tweeted. The x axis corresponds to the number of days after a tweet. With negative values indicating the number of days before a tweet. The black line is the average absolute value of returns (= 2.87\%). On day 0 is the average abs return on the day Musk tweets. </figcaption>
+</figure>
 
-				<h1 id = "conclusion">
+
+					<h1 id = "conclusion">
 					Conclusion
 				</h1>
 <p>
