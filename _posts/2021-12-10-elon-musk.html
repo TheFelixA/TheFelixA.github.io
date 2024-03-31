@@ -54,14 +54,14 @@ Elon has become a habitual tweeter <a id = "footnote-1-ref" href = "#footnote-1"
 				</p>
 <figure>
 <img src = "/img/muskeffect/tsla1.png" alt = "Tesla Price" width = "600" height = "400">
-<figcaption><a href = >Figure 1</>: The closing price of TSLA from yahoo finance from xx/xx/2016 until xx/xx/2021. Prices are in logs in order to show the magnitude of the movements. The vertical lines indicate the date that Musk tweeted  </figcaption>
+<figcaption><a href = >Figure 1</a>: The closing price of TSLA from yahoo finance from xx/xx/2016 until xx/xx/2021. Prices are in logs in order to show the magnitude of the movements. The vertical lines indicate the date that Musk tweeted  </figcaption>
 </figure>				
 <p>
 					Tesla stock is not the only asset that Musk dabbles in. His tweets have corresponded to timely moves in cryptocurrencies. One that has been looked through is Dogecoin. The figure below presents a time series of the Dogecoin to USD price series. The prices are in log, and because Dogecoin has a small fractional value compared to the dollar, we end up with a negative number. In this case, we can see that Musk has some influence on the price, especially since it remains relatively flat until he tweets about it. Coincidently, these dates also correspond to a major shift in the TSLA stock price. See the appendix for a chart.
 				</p>
 <figure>
 <img src = "/img/muskeffect/doge1.png" alt = "Tesla Price" width = "600" height = "400">
-<figcaption><a href = >Figure 2</>: The closing price of DOGE/USD from Yahoo Finance, taken from coinmarketcap, from xx/xx/2016 until xx/xx/2021. Prices are in logs to show the magnitude of the movements. The vertical lines indicate the date that Musk tweeted </figcaption>
+<figcaption><a href = >Figure 2</a>: The closing price of DOGE/USD from Yahoo Finance, taken from coinmarketcap, from xx/xx/2016 until xx/xx/2021. Prices are in logs to show the magnitude of the movements. The vertical lines indicate the date that Musk tweeted </figcaption>
 </figure>
 				<p>
 					After witnessing these price movement after a statement from Elon Musk, we may wonder if this holds for a currency like Bitcoin, which has larger volume than Doge but is still prone to manipulation. The cryptocurrency sphere is more unregulated than securities and stock so they are no criminal charges to any action completed by Musk. We must see what the data tells us to surmise that he is manipulating the market.
@@ -91,7 +91,7 @@ To learn more about crypto currencies, see my blog post here.
 				</h1>
 <p>
 
-We briefly describe the data used in the paper. The price data for bitcoin/USD comes from CryptoCompare \footnote{\href{https://www.cryptocompare.com/coins/btc/charts/USDT?p=ALL}{Here}}. The reason for using this data is because it is well vetted and aggregates the price across multiple exchanges to get an index for BTC/USD price. The price reported is the volume-weighted price for each day. This is computed as the \[\text{Price} = \frac{\text{Volume to}}{\text{Volume From}}\] where Volume to is the amount of USD converted in BTC and Volume From is the amount of BTC purchased. 
+We briefly describe the data used in the paper. The price data for bitcoin/USD comes from CryptoCompare. The reason for using this data is because it is well vetted and aggregates the price across multiple exchanges to get an index for BTC/USD price. The price reported is the volume-weighted price for each day. This is computed as the \[\text{Price} = \frac{\text{Volume to}}{\text{Volume From}}\] where Volume to is the amount of USD converted in BTC and Volume From is the amount of BTC purchased. 
 
 Next, we obtain the Elon Musk Twitter data from Kaggle \footnote{\href{https://www.kaggle.com/ayhmrba/elon-musk-tweets-2010-2021?select=2021.csv}{Here}}. The data is only until March 2021 so we have to append it with a few other pupular tweets that happened this year. The Kaggle data is complete; providing url of tweet, number of likes/retweets/replies etc. The data was directly pulled from the Twitter API and cleaned up to a CSV format. 
 
@@ -154,6 +154,24 @@ Or is it that Musk tweets because there is an uptrend
 \end{align}
 
 </p>
+\begin{tabular}{@{}lllllllll@{}}
+\toprule
+                         & 2015  & 2016  & 2017  & 2018  & 2019  & 2020  & 2021                       &       \\ \midrule
+\multicolumn{1}{l|}{Jan} & -1.39 & -0.52 & -0.12 & \cellcolor[HTML]{CBCEFB} -1.36 & -0.32 & \cellcolor[HTML]{CBCEFB} 0.81  & \multicolumn{1}{l|}{\cellcolor[HTML]{67FD9A} 0.30}  & -0.37 \\ \midrule
+\multicolumn{1}{l|}{Feb} & 0.45  & 0.52  & 0.76  & \cellcolor[HTML]{CBCEFB} 0.30  & \cellcolor[HTML]{CBCEFB} 0.37  & \cellcolor[HTML]{FD6864} -0.33 & \multicolumn{1}{l|}{\cellcolor[HTML]{CBCEFB} 1.14}  & 0.46  \\ \midrule
+\multicolumn{1}{l|}{Mar} & -0.14 & -0.16 & -0.42 & -1.60 & 0.24  & \cellcolor[HTML]{67FD9A} -1.21 & \multicolumn{1}{l|}{ \cellcolor[HTML]{CBCEFB} 0.62}  & -0.38 \\ \midrule
+\multicolumn{1}{l|}{Apr} & -0.14 & 0.28  & 0.92  & 0.91  & \cellcolor[HTML]{67FD9A} 0.82  & \cellcolor[HTML]{CBCEFB}  1.03  & \multicolumn{1}{l|}{\cellcolor[HTML]{CBCEFB} -0.11} & 0.53  \\ \midrule
+\multicolumn{1}{l|}{May} & -0.15 & 0.52  & 1.49  & \cellcolor[HTML]{CBCEFB} -0.62 & 1.42  & \cellcolor[HTML]{CBCEFB} 0.29  & \multicolumn{1}{l|}{\cellcolor[HTML]{CBCEFB} -1.59} & 0.20  \\ \midrule
+\multicolumn{1}{l|}{Jun} & 0.44  & 0.68  & 0.00  & -0.60 & 0.62  & -0.21 & \multicolumn{1}{l|}{\cellcolor[HTML]{FD6864} -0.38} & 0.08  \\ \midrule
+\multicolumn{1}{l|}{Jul} & -0.68 & -0.30 & 0.33  & \cellcolor[HTML]{CBCEFB}0.54  & -0.21 & \cellcolor[HTML]{CBCEFB} 0.73  & \multicolumn{1}{l|}{0.61}  & 0.15  \\ \midrule
+\multicolumn{1}{l|}{Aug} & -0.70 & -0.26 & 1.72  & -0.21 & -0.19 & 0.06  & \multicolumn{1}{l|}{0.45}  & 0.12  \\ \midrule
+\multicolumn{1}{l|}{Sep} & 0.12  & 0.22  & -0.45 & -0.30 & -0.52 & -0.36 & \multicolumn{1}{l|}{-0.14} & -0.20 \\ \midrule
+\multicolumn{1}{l|}{Oct} & 0.93  & 0.53  & 1.27  & \cellcolor[HTML]{67FD9A} -0.13 & 0.23  & 0.79  & \multicolumn{1}{l|}{0.85}  & 0.64  \\ \midrule
+\multicolumn{1}{l|}{Nov} & 0.31  & 0.11  & \cellcolor[HTML]{CBCEFB} 1.41  & -1.52 & -0.76 & \cellcolor[HTML]{CBCEFB} 1.04  & \multicolumn{1}{l|}{-0.28} & 0.05  \\ \midrule
+\multicolumn{1}{l|}{Dec} & 0.52  & 0.85  & 0.60  & -0.36 & -0.07 & \cellcolor[HTML]{67FD9A} 1.32  & \multicolumn{1}{l|}{}      & 0.48 
+ \\ \bottomrule
+\multicolumn{1}{l|}{}    & -0.04 & 0.21  & 0.63  & -0.41 & 0.14  & 0.33  & \multicolumn{1}{l|}{0.13}  &      
+\end{tabular}
 
 				<h1 id = "conclusion">
 					Conclusion
