@@ -18,5 +18,10 @@ _"The Fed's Discount Window: An Overview of Recent Data (2018)"_ (w/ H. Ennis):
 _"Biased Shuffling Markov Chains (2015)"_ (Undergraduate Research):
 [**Poster**](https://www.dropbox.com/s/83zfo0kc7ih71fw/MC%20Symposium%20Poster.pdf?dl=0)
 
+_"Oxford-Princeton Workshop XIII
+on Financial Mathematics & Stochastic Analysis"_ (April 19th, 2024)
+
+_"8th International Conference on Energy Economics and Energy Policy"_ (April 27th, 2024)
+
 ### Working Titles
 _"Offtake Agreements and Uptake of Renewable Generators"
