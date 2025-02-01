@@ -3,6 +3,10 @@ layout:page
 title: Races
 subtitle: Some races I've run
 ---
+# General Fitness
+### Crossfit
+I spent a few months of fall 2024 in Dallas, and picked up crossfit. The gymonwer was amazing and interviewed me.
+[Video](https://photos.app.goo.gl/ZrsTkygZtS4UFx3J7)
 
 # 5KM
 ### Tiger Trot for Hunger 5K (2023), Princeton NJ [Link](https://runsignup.com/Race/Results/102753/IndividualResult/gSXL?resultSetId=424235#U51497525)
